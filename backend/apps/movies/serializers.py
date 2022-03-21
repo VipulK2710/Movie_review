@@ -1,10 +1,11 @@
-from .models import Post
+from pickle import TRUE
+from .models import Movie
 from rest_framework import serializers
 
 
-class PostSerializer(serializers.ModelSerializer):
+class MovieSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(allow_null=True)
 
     class Meta:
-        model = Post
+        model = Movie
         fields = '__all__'

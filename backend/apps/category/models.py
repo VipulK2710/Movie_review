@@ -1,16 +1,15 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 
+# Create your models here.
 
-class Post(models.Model):
+
+class Category(models.Model):
     class Meta(object):
-        db_table = 'post'
+        db_table = 'category'
 
     name = models.CharField(
-        'Name', blank=False, null=False, max_length=50, db_index=True, default='Anonymous'
-    )
-    body = models.TextField(
-        'Body', blank=False, null=False, db_index=True
+        'name', blank=False, null=False, max_length=50, db_index=True, default='Anonymous'
     )
     image = CloudinaryField(
         'image', blank=True, null=True
@@ -21,3 +20,6 @@ class Post(models.Model):
     updated_at = models.DateTimeField(
         'Updated Datetime', blank=True, auto_now=True
     )
+
+    def __str__(self):
+        return self.name

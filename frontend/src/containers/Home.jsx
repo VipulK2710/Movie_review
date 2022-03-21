@@ -1,87 +1,222 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Loading from '../assets/img/loading.gif';
-import postImage from '../assets/img/newspaper-icon-png.jpg';
-import PostForm from '../components/Posts/PostForm';
-import Post from '../components/Posts/Post';
-import { fetchPosts } from '../reducks/posts/operations';
-import { getPosts } from '../reducks/posts/selectors';
+import React from 'react' 
+import shang from '../assets/img/shang-chi.png'
+import redheart from '../assets/img/red-heart-icon.svg'
+import star from '../assets/img/star.png'
+import trailer from '../assets/img/trailer-button.png'
+import FreeGuy from '../assets/img/FreeGuy.png'
+import cruella from '../assets/img/cruella.png'
+import father from '../assets/img/father.png'
 
-const Home = () => {
-    const dispatch = useDispatch();
-    const selector = useSelector(state => state);
-    const posts = getPosts(selector);
-    let [page, setPage] = useState(1);
-    const [isLoading, setIsLoading] = useState(false);
-
-    useEffect(() => {
-        dispatch(fetchPosts({ page }));
-        // eslint-disable-next-line
-    }, []);
-
-    // Infinite Scroll Pagination Flow
-    const observer = useRef();
-
-    // Reference to a very last post element
-    const lastPostElement = useCallback(
-        node => {
-            if (isLoading) return;
-            // Disconnect reference from previous element, so that new last element is hook up correctly
-            if (observer.current) {
-                observer.current.disconnect();
-            }
-
-            // Observe changes in the intersection of target element
-            observer.current = new IntersectionObserver(async entries => {
-                // That means that we are on the page somewhere, In our case last element of the page
-                if (entries[0].isIntersecting && posts.next) {
-                    // Proceed fetch new page
-                    setIsLoading(true);
-                    setPage(++page);
-                    await dispatch(fetchPosts({ page }));
-                    setIsLoading(false);
-                }
-            });
-
-            // Reconnect back with the new last post element
-            if (node) {
-                observer.current.observe(node);
-            }
-        },
-        // eslint-disable-next-line
-        [posts.next]
-    );
-
-    return (
-        <section className="content">
-            <PostForm />
-            <section className="posts">
-                {posts.results.length > 0 ? (
-                    <ul>
-                        {posts.results.map((post, index) => {
-                            return (
-                                <Post
-                                    ref={index === posts.results.length - 1 ? lastPostElement : null}
-                                    key={post.id}
-                                    post={post}
-                                />
-                            );
-                        })}
-                    </ul>
-                ) : (
-                    <div className="no-post">
-                        <img width="72" src={postImage} alt="icon" />
-                        <p>No posts here yet...</p>
+function Home() {
+  return (
+    <div>
+      <div className="content">
+        <h1>
+            Newly Released
+        </h1>
+        <div className="Movies">
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src={shang} alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>Shang-Chi And The Legend of Ten Rings</p>
+                    <div className="ratings-trailer">
+                        <img className="star" src={star} alt="" />
+                        <div className="ratings">4.5/5</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=8YjFbMbfXaQ" target="_blank" type="image"> <img src={trailer} alt=""/></a>
                     </div>
-                )}
-                {isLoading && (
-                    <div className="loading">
-                        <img src={Loading} className="" alt="" />
-                    </div>
-                )}
-            </section>
-        </section>
-    );
-};
+                </div>
+            </div>
 
-export default Home;
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src={FreeGuy} alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>Free Guy</p>
+                    <div className="ratings-trailer">
+                        <img className="star" src={star} alt="" />
+                        <div className="ratings">4.5/5</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=X2m-08cOAbc" target="_blank" type="image"> <img src={trailer} alt=""/></a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src={cruella} alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>Cruella</p>
+                    <div className="ratings-trailer">
+                        <img className="star" src={star} alt="" />
+                        <div className="ratings">4.5/5</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=gmRKv7n2If8" target="_blank" type="image"> <img src={trailer} alt=""/></a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src={father} alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>Father</p>
+                    <div className="ratings-trailer">
+                        <img className="star" src={star} alt="" />
+                        <div className="ratings">4.5/5</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=OFnoRaLAclg" target="_blank" type="image"> <img src={trailer} alt=""/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div className="Movies">
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src="img/Raya.png" alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>Raya and Last Dragon</p>
+                    <div className="ratings-trailer">
+                        <img className="star" src={star} alt="" />
+                        <div className="ratings">4.5/5</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=9BPMTr-NS9s" target="_blank" type="image"> <img src={trailer} alt="" /></a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src="img/Namadland.png" alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>Nomadland</p>
+                    <div className="ratings-trailer">
+                        <img className="star" src={star} alt="" />
+                        <div className="ratings">4.5/5</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=6sxCFZ8_d84" target="_blank" type="image"> <img src={trailer} alt=""/></a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src="img/minari.png" alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>Minari</p>
+                    <div className="ratings-trailer">
+                        <img className="star" src={star} alt="" />
+                        <div className="ratings">4.5/5</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=KQ0gFidlro8" target="_blank" type="image"> <img src={trailer} alt=""/></a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src="img/judas.png" alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>Judads and the black messiah</p>
+                    <div className="ratings-trailer">
+                        <img className="star" src={star} alt="" />
+                        <div className="ratings">4.5/5</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=sSjtGqRXQ9Y" target="_blank" type="image"> <img src={trailer} alt=""/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div className="content">
+        <h1>
+            Newly Released
+        </h1>
+        <div className="Movies">
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src="img/no-die.png" alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>No time to die</p>
+                    <div className="ratings-trailer">
+                        <div className="date">October 1st</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=9EaBdOkMT_Q" target="_blank" type="image"> <img src={trailer} alt=""/></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src="img/Venom.png" alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>Venom</p>
+                    <div className="ratings-trailer">
+                        <div className="date">October 1st</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=u9Mv98Gr5pY" target="_blank" type="image"> <img src={trailer} alt=""/></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src="img/Titane.png" alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>Titnae</p>
+                    <div className="ratings-trailer">
+                        <div className="date">October 1st</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=rzq-_f1fW_s" target="_blank" type="image"> <img src={trailer} alt=""/></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src="img/addoms.png" alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>The Addams Family 2</p>
+                    <div className="ratings-trailer">
+                        <div className="date">October 1st</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=Kd82bSBDE84" target="_blank" type="image"> <img src={trailer} alt=""/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="Movies">
+            <div className="Movies-info">
+                <div className="Movies-poster">
+                    <img className="Movies-img" src="img/mass.png" alt=""/>
+                    <img className="like-icon" src={redheart} alt=""/>
+                </div>
+                <div className="Movies-details">
+                    <p>Mass</p>
+                    <div className="ratings-trailer">
+                        <div className="date">October 1st</div>
+                        <a className="trailer-button" href="https://www.youtube.com/watch?v=oU56Ns1nXsE" target="_blank" type="image"> <img src={trailer} alt=""/></a>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    </div>
+  )
+}
+
+export default Home

@@ -1,5 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+from apps.category.models import Category
 # Create your models here.
 
 
@@ -10,7 +11,7 @@ class Movie(models.Model):
     )
 
     class Meta(object):
-        db_table = 'movies'
+        db_table = 'movie'
 
     name = models.CharField(
         'name', blank=False, null=False, max_length=50, db_index=True, default='Name of Movies'
@@ -18,18 +19,21 @@ class Movie(models.Model):
     description = models.CharField(
         'description', blank=False, null=False, max_length=500, db_index=True, default="Description"
     )
+    release_type = models.CharField(
+        'release_type', blank=False, null=True, max_length=50, choices=MY_CHOICES
+    )
+    category_id = models.ForeignKey(
+        Category, on_delete=models.CASCADE
+    )
     image = CloudinaryField(
         'Image', blank=True, null=True
     )
-    category_id = models.IntegerField(
-        'Name of Category', blank=False, null=False, db_index=True
-    )
     trailer_link = models.CharField(
-        'Trailer Link', blank=True, null=False, max_length=500, db_index=True
+        'Trailer Link', blank=True, null=False, max_length=5000, db_index=True
     )
     created_at = models.DateTimeField(
         'Created Time', blank=True, auto_now_add=True
     )
     updated_at = models.DateTimeField(
-        'Updated Time', blank=True, auto_now=True
+        'Updated Time', blank=True
     )

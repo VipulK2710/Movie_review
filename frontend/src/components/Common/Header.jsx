@@ -1,47 +1,48 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { useDispatch } from 'react-redux'
+import { push } from 'connected-react-router'
+import logo from '../../assets/img/logo.svg'
+import fav from '../../assets/img/favorite_white_48dp.svg'
+import arroew from '../../assets/img/arrow_drop_down_white_24dp.svg'
+
 
 function Header() {
+  const dispatch = useDispatch();
+    const [search, setSearch] = useState();
+    const inputSearch = event => {
+        setSearch(event.target.value);
+    };
+    const submitAction = () => {
+        dispatch(push('/search/?search=' + search));
+    };
+  
   return (
     <div>
-        <header>
-        <div className="Navbar">
-            <div className="header">
-                <div className="logo">
-                  <img src="img/logo.png" alt="" height="30px" width="70px" />
-                </div>
-                <div className="nav1">
-                  <div className="search-bar">
-                    <input type="text" />
-                    <div className="search-img">
-                      <img
-                        src="img/search.png"
-                        style="width: 20px; height: 20px"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                  <select className="Category">
-                    <option value="Category">Category</option>
-                    <option value="New-Movies">New Movies</option>
-                    <option value="Comming-Soon">Comming Soon</option>
-                    <option value="Action">Action</option>
-                    <option value="Comedy">Comedy</option>
-                    <option value="Drama">Drama</option>
-                    <option value="Horror">Horror</option>
-                    <option value="Favorites">Favorites</option>
-                  </select>
-                  <div className="favorites">
-                    <img src="img/fav1.png" style="height: 18px" />
-                  </div>
-                </div>
-            </div>
-            <div className="poster-img">
-                <img src="img/no-time-to-die-poster.png" alt="" style="width: 100%;"/>
-            </div>
+      <nav>
+        <div class="left-nav">
+         <img src={logo} onClick={() => dispatch(push('/'))}/>
         </div>
-    </header>
+        <div class="right-nav">
+          <div class="container">
+            <form onSubmit={submitAction}>
+            <input type="text" onChange={inputSearch} name="search" id="ip" />
+            </form>  
+            
+            <div class="cat" onClick={() => dispatch(push('/category'))}>
+                <h1 onClick={() => dispatch(push('/category'))}>category</h1>
+                <img src={arroew} alt="" />
+            </div>
+
+            <div class="cat">
+              <h1 onClick={() => dispatch(push('/favourites'))}>Favorites</h1>
+              <img src={fav} alt="" />
+            </div>
+
+          </div> 
+        </div>
+      </nav>
     </div>
-    )
+  )
 }
 
 export default Header

@@ -1,16 +1,17 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
-import Footer from './components/Common/Footer';
+import Favourites from './containers/Favourites';
 import Home from './containers/Home';
-import Movies from './containers/Movies';
+import Category from './containers/Category';
+
 
 const Router = () => {
     return (
         <>
             <Switch>
                 <Route exact path={'/'} component={Home} />
-                <Route exact path={'/movies'} component={Movies}/>
-                <Route exact path={'/footer'} component={Footer}/>
+                <Route exact path={'/favourites'} component={Favourites}/>
+                <Route exact path={'/category'} component={Category}/>                
             </Switch>
         </>
     );

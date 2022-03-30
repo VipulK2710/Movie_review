@@ -1,4 +1,3 @@
-from pickle import TRUE
 from .models import Movie
 from rest_framework import serializers
 

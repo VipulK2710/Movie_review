@@ -7,7 +7,7 @@ from apps.category.models import Category
 class Movie(models.Model):
     MY_CHOICES = (
         ('Newly Released', 'Newly Released'),
-        ('Coming Soon', 'Coming Soon')
+        ('Coming Soon', 'Coming Soon'),
     )
 
     class Meta(object):
@@ -20,10 +20,10 @@ class Movie(models.Model):
         'description', blank=False, null=False, max_length=500, db_index=True, default="Description"
     )
     release_type = models.CharField(
-        'release_type', blank=False, null=True, max_length=50, choices=MY_CHOICES
+        'release_type', blank=True, null=True, max_length=50, choices=MY_CHOICES
     )
     category_id = models.ForeignKey(
-        Category, on_delete=models.CASCADE
+        Category, on_delete=models.CASCADE, blank=True, null=True
     )
     image = CloudinaryField(
         'Image', blank=True, null=True

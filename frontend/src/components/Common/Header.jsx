@@ -17,7 +17,6 @@ function Header() {
     };
   
   return (
-    <div>
       <nav>
         <div class="left-nav">
          <img src={logo} onClick={() => dispatch(push('/'))}/>
@@ -41,7 +40,6 @@ function Header() {
           </div> 
         </div>
       </nav>
-    </div>
   )
 }
 

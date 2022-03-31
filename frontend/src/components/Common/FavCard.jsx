@@ -6,7 +6,7 @@ import { deleteFavourite } from '../../reducks/favourites/operations'
 import { useDispatch } from 'react-redux' 
 
 function FavCard ({ favourite }) {
-    const dispatch = useDispatch
+    const dispatch = useDispatch();
   return (
     <div>
         <div className='movie-card'>
@@ -14,8 +14,10 @@ function FavCard ({ favourite }) {
                 <div className="Movies-info">
                     <div className="Movies-poster">
                         <img className="Movies-img" src={favourite.image} alt=""/>
-                        <div className='like-icon' onClick={() => dispatch(deleteFavourite(favourite.id))}>
-                            <img src={redheart} alt="" />
+                        <div className='like-icon'>
+                            <img onClick={() => 
+                            dispatch(deleteFavourite(favourite.id))}
+                            src={redheart} alt="" />
                         </div>
                     </div>
                     <div className="Movies-details">

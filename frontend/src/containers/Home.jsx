@@ -3,7 +3,7 @@ import { getMovies } from '../reducks/movies/selectors';
 import Card from '../components/Common/Card'
 import queryString from 'query-string'; 
 import Footer from '../components/Common/Footer'
-import Header from '../components/Common/Header'
+import Cover from '../components/Common/Cover';
 import API from '../API'
 import { useSelector } from 'react-redux'
 
@@ -35,7 +35,7 @@ function Home() {
 
   return (
     <div>
-        <Header/>
+        <Cover/>
       <div className="content">       
         <h1>
             Newly Released

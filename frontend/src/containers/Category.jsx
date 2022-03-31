@@ -37,7 +37,7 @@ const Category = () => {
              alert('Failer to connect') 
           })
 
-        api.getMovies({category_id: '2'})
+        api.getMovies({category_id: '4'})
           .then(movies => {
               setcategoryHorror(movies);
           })
@@ -63,7 +63,6 @@ const Category = () => {
                     <p>Cannot found movie for you....</p>
                 </div>
             )}
-            <hr />
 
             {/* Comedy */}
             <h1>

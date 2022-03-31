@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { push } from 'connected-react-router';
-import ImgSearch from '../../assets/img/search.png';
+import ImgSearch from '../../assets/img/search.svg';
 
 const SearchBox = () => {
     const dispatch = useDispatch();

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ImgSearch from '../../assets/img/search.svg';
-import Results from '../../components/common/SearchBox';
+import Results from '../Common/SearchBox'
+
 const Search = () => {
     const [showResults, setShowResults] = useState(false);
     const onClick = () => setShowResults(!showResults);

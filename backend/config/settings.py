@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 import django_heroku
 import cloudinary
@@ -19,7 +19,7 @@ import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -29,10 +29,8 @@ SECRET_KEY = 'django-insecure-ov#r^^&xv&^0vmc(zj&h_t^$*52@8jicn=%*z*@s-=li!s_p@=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'forum-prod-api.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000',
-                        'http://127.0.0.1:3000', 'https://forum-prod-frontend.herokuapp.com']
 
 # Application definition
 
@@ -148,7 +146,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+# STATIC_URL = '/static/'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_TMP = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+
+os.makedirs(STATIC_TMP, exist_ok=True)
+os.makedirs(STATIC_ROOT, exist_ok=True)
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

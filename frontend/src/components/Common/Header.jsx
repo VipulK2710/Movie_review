@@ -4,7 +4,7 @@ import { push } from 'connected-react-router'
 import logo from '../../assets/img/logo.svg'
 import fav from '../../assets/img/favorite_white_48dp.svg'
 import arroew from '../../assets/img/arrow_drop_down_white_24dp.svg'
-
+import searchImg from '../../assets/img/search.svg' 
 
 function Header() {
   const dispatch = useDispatch();
@@ -15,18 +15,18 @@ function Header() {
     const submitAction = () => {
         dispatch(push('/search/?search=' + search));
     };
-  
   return (
+    <div>
       <nav>
         <div class="left-nav">
          <img src={logo} onClick={() => dispatch(push('/'))}/>
         </div>
         <div class="right-nav">
           <div class="container">
-            <form onSubmit={submitAction}>
-            <input type="text" onChange={inputSearch} name="search" id="ip" />
-            </form>  
-            
+            <form>
+            <input type="text" name="search" id="ip" onChange={inputSearch} />
+            {/* <img src={searchImg} alt="" onClick={submitAction}/> */}
+            </form>
             <div class="cat" onClick={() => dispatch(push('/category'))}>
                 <h1 onClick={() => dispatch(push('/category'))}>category</h1>
                 <img src={arroew} alt="" />
@@ -40,6 +40,7 @@ function Header() {
           </div> 
         </div>
       </nav>
+    </div>
   )
 }
 

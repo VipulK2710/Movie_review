@@ -9,4 +9,4 @@ class MovieList(generics.ListAPIView):
     serializer_class = MovieSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ['category_id', 'release_type']
-    search_fields = ['name', 'description']
+    search_fields = ['name']

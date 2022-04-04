@@ -26,15 +26,18 @@ Cover
 .description {
     bottom: 0;
     background-color: rgb(75, 70, 65);
-    width: 100%;
+    width: auto;
     font-size: large;
     margin-left: 11%;
 }
 .cover-info img {
     margin-left: 10%;
+    height: 4vh;
+    width: auto;
 }
 .cover-info pre {
     margin-left: 11%;
+    width: auto;
 }
 .cover pre {
     color: white;
@@ -109,7 +112,7 @@ h1 {
 }
 .movie {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(4, 1fr);
     margin-left: 2%;
 }
 .content {
@@ -171,21 +174,21 @@ h1 {
     height: 30px;
 }
 
-@media screen and (max-width: 500px) and (min-width: 200px) {
+@media screen and (min-width: 1065px) {
     .movie {
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
-@media screen and (max-width: 700px) and (min-width: 500px) {
+@media screen and (max-width: 1060px) {
     .movie {
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
-
-@media screen and (max-width: 200px) {
+@media screen and (max-width: 727px) {
     .movie {
         display: grid;
+        grid-template-columns: repeat(1, 1fr);
     }
 }

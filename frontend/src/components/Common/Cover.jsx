@@ -8,7 +8,7 @@ function Cover() {
         <Header/>
         <section class="cover">
             <div class="cover-info">
-                <img src={button} alt="" />
+                <a href="https://www.youtube.com/watch?v=vw2FOYjCz38"><img src={button} alt="" /></a>
                 <pre>
                     October 1st
                     In Cinemas

@@ -4,7 +4,7 @@ import { push } from 'connected-react-router'
 import logo from '../../assets/img/logo.svg'
 import fav from '../../assets/img/favorite_white_48dp.svg'
 import arroew from '../../assets/img/arrow_drop_down_white_24dp.svg'
-import searchImg from '../../assets/img/search.svg' 
+ 
 
 function Header() {
   const dispatch = useDispatch();
@@ -25,7 +25,6 @@ function Header() {
           <div class="container">
             <form onSubmit={submitAction} >
             <input type="text" name="search" id="ip" onChange={inputSearch} />
-            {/* <img src={searchImg} alt="" onClick={submitAction}/> */}
             </form>
             <div class="cat" >
                <a href="/category"> <h1>category</h1></a>

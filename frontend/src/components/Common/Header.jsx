@@ -23,17 +23,17 @@ function Header() {
         </div>
         <div class="right-nav">
           <div class="container">
-            <form>
+            <form onSubmit={submitAction} >
             <input type="text" name="search" id="ip" onChange={inputSearch} />
             {/* <img src={searchImg} alt="" onClick={submitAction}/> */}
             </form>
-            <div class="cat" onClick={() => dispatch(push('/category'))}>
-                <h1 onClick={() => dispatch(push('/category'))}>category</h1>
+            <div class="cat" >
+               <a href="/category"> <h1>category</h1></a>
                 <img src={arroew} alt="" />
             </div>
 
             <div class="cat">
-              <h1 onClick={() => dispatch(push('/favourites'))}>Favorites</h1>
+             <a href="./favourites"> <h1 >Favorites</h1></a>
               <img src={fav} alt="" />
             </div>
 

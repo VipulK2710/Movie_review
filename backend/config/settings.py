@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
-import django_heroku
+# import django_heroku
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -53,14 +53,15 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     # To allow CORS (Cross-origin resource sharing)
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -88,24 +89,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 # Heroku Database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd896q2eteqborh',
-        'USER': 'leoqnmevadlcgv',
-        'PORT': 5432,
-        'HOST': 'ec2-44-198-204-136.compute-1.amazonaws.com',
-        'PASSWORD': '9826c46a00899ea6bec3ef363d137a71887ca95957ff29d3521e9d69dcfa82c8',
-    }
-}
-
-# Local Database
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd896q2eteqborh',
+#         'USER': 'leoqnmevadlcgv',
+#         'PORT': 5432,
+#         'HOST': 'ec2-44-198-204-136.compute-1.amazonaws.com',
+#         'PASSWORD': '9826c46a00899ea6bec3ef363d137a71887ca95957ff29d3521e9d69dcfa82c8',
 #     }
 # }
+
+# Local Database
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Heroku PostgreSQL Database
 

@@ -11,9 +11,9 @@ export default function createStore(history) {
             movies: MoviesReducer,
             favourites: FavourotesReducer
         }),
-//         compose(
-//             applyMiddleware(routerMiddleware(history), thunk),
+        compose(
+            applyMiddleware(routerMiddleware(history), thunk),
 //             window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-//         )
+        )
     );
 }

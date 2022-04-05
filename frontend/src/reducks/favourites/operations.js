@@ -1,7 +1,7 @@
 import API from '../../API';
-import { addFavouritesAction, fetchFavouritesAction, deleteFavouritesAction } from './action';
+import { addFavouritesAction, fetchFavouritesAction, deleteFavouritesAction } from './actions';
 
-
+const api = new API();
 const FAVOURITES_KEY = 'FAVOURITES_KEY';
 
 export const fetchFromLocalStorage = () => {
@@ -27,7 +27,7 @@ export const addFavourite = place => {
 export const deleteFavourite = id => {
     return async (dispatch, getState) => {
         let prevFavourites = getState().favourites.list;
-        const nextFavourites = prevFavourites.filter(image => image.id !== id);
+        const nextFavourites = prevFavourites.filter(image => image.id != id);
         setToLocalStorage(nextFavourites);
         dispatch(deleteFavouritesAction(nextFavourites));
     };

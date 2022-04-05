@@ -11,9 +11,7 @@ class Category(models.Model):
     name = models.CharField(
         'name', blank=False, null=False, max_length=50, db_index=True, default='Anonymous'
     )
-    image = CloudinaryField(
-        'image', blank=True, null=True
-    )
+
     created_at = models.DateTimeField(
         'Created Datetime', blank=True, auto_now_add=True
     )

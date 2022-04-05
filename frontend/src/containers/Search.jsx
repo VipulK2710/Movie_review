@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Footer from '../components/common/Footer';
-import Header from '../components/common/Header';
+import Footer from '../components/Common/Footer';
+import Header from '../components/Common/Header';
 import queryString from 'query-string';
 import { getMovies } from '../reducks/movies/selectors';
 import { fetchMovies } from '../reducks/movies/operations';
-import Card from '../components/common/Card';
+import Card from '../components/Common/Card';
 
 const Search = () => {
     const parsed = queryString.parse(window.location.search);

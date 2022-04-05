@@ -10,7 +10,7 @@ const SearchBox = () => {
         setSearch(event.target.value);
     };
     const submitAction = () => {
-        dispatch(push('/search/?search=' + search));
+        dispatch(push('/search/?search' + search));
     };
     return (
         <>

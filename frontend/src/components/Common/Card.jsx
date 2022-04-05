@@ -8,6 +8,7 @@ import { getFavourites } from '../../reducks/favourites/selectors'
 
 
 
+
 function Card ({movie}) {
     const dispatch = useDispatch();
 
@@ -35,12 +36,14 @@ function Card ({movie}) {
                     {showLikeButton && (
                 <div className='like-icon'
                 onClick={()=> {
-                    clickFavourite(movie);
+                  clickFavourite(movie);
                 }}>
                     <img src={redheart} alt="" />
                 </div>
+               
                 )}
                 </div>
+               
                 <div className="Movies-details">
                     <p>{movie.name}</p>
                     <div className="ratings-trailer">

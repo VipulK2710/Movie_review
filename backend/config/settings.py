@@ -89,24 +89,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 # Heroku Database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'd896q2eteqborh',
-#         'USER': 'leoqnmevadlcgv',
-#         'PORT': 5432,
-#         'HOST': 'ec2-44-198-204-136.compute-1.amazonaws.com',
-#         'PASSWORD': '9826c46a00899ea6bec3ef363d137a71887ca95957ff29d3521e9d69dcfa82c8',
-#     }
-# }
-
-# Local Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd896q2eteqborh',
+        'USER': 'leoqnmevadlcgv',
+        'PORT': 5432,
+        'HOST': 'ec2-44-198-204-136.compute-1.amazonaws.com',
+        'PASSWORD': '9826c46a00899ea6bec3ef363d137a71887ca95957ff29d3521e9d69dcfa82c8',
     }
 }
+
+# Local Database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Heroku PostgreSQL Database
 

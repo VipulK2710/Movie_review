@@ -16,7 +16,6 @@ function Cover() {
                     In Cinemas
                 </pre>
                 <br />
-                <br />
                 <div class="description">
                     James Bond has left active service. His peace is short-lived when Felix Leiter,
                     an oldfriend from the CIA, turns up asking for help, leading Bond ontobr

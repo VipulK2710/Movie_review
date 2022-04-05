@@ -2,7 +2,7 @@ import { createStore as reduxCreateStore, combineReducers, applyMiddleware, comp
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import thunk from 'redux-thunk';
 import { MoviesReducer } from '../movies/reducer';
-import { FavourotesReducer } from '../favourites/reducer';
+import { FavourotesReducer } from '../favourites/reducers';
 
 export default function createStore(history) {
     return reduxCreateStore(

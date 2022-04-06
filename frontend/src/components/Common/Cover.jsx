@@ -15,6 +15,7 @@ function Cover() {
                 <a href="https://www.youtube.com/watch?v=vw2FOYjCz38" target='_blank' ><img src={button} alt="" /></a>
                 <pre>
                     October 1st
+                    <br />
                     In Cinemas
                 </pre>
                 <br />

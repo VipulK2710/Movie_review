@@ -12,8 +12,14 @@ Cover
 .main-cover {
     width: 100%;
 }
+.cover .head{
+    position: absolute;
+    width: 100%;
+
+}
 .cover {
     position: relative;
+    z-index: 3;
 }
 .cover img {
     width: 100%;
@@ -54,12 +60,12 @@ nav {
 }
 nav .right-nav {
     width: 70%;
-    background-color: black;
+    /* background-color: black; */
 }
 nav .left-nav {
     padding-top: 1%;
     width: 30%;
-    background-color: black;
+    /* background-color: black; */
 }
 
 nav .left-nav img {
@@ -89,7 +95,7 @@ nav .right-nav .container input {
     border-radius: 10px;
     border: 1px solid lightslategray;
     padding: 1% 0;
-    background: black;
+    /* background: black; */
     position: relative;
 }
 

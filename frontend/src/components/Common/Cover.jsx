@@ -6,8 +6,10 @@ import bgimg from '../../assets/img/no-time-to-die-poster.png'
 function Cover() {
   return (
     <div class="main-cover">
-        <Header/>
         <section class="cover">
+            <div class="head">
+            <Header/>
+            </div>
             <img src={bgimg} alt="" />
             <div class="cover-info">
                 <a href="https://www.youtube.com/watch?v=vw2FOYjCz38" target='_blank' ><img src={button} alt="" /></a>

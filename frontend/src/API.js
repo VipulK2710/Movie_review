@@ -4,6 +4,9 @@ import axios from 'axios';
 var baseURL;
 baseURL = 'https://backend-sdp-m.herokuapp.com/';
 
+// var baseURL;
+// baseURL = 'http://127.0.0.1:8000/';
+
 const api = axios.create({
     baseURL: baseURL,
     headers: {
@@ -25,7 +28,7 @@ const api = axios.create({
             }
         }
 
-        if (query.toString() != '') {
+        if (query.toString() == '') {
             url += '?' + query.toString();
         }
         const places = await api

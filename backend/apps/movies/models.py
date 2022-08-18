@@ -37,3 +37,6 @@ class Movie(models.Model):
     updated_at = models.DateTimeField(
         'Updated Time', blank=True
     )
+
+    def __str__(self):
+        return self.name

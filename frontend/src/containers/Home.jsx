@@ -39,7 +39,7 @@ function Home() {
       <div className="content">       
         <h1>
             Newly Released
-        </h1>
+        </h1>    
         <div className="Movies">
             {moviesNewReleased && moviesNewReleased.results.length > 0 ? (
                 <div className='movie'>

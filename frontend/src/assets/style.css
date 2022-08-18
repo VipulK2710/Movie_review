@@ -14,8 +14,7 @@ Cover
 }
 .cover .head{
     position: absolute;
-    width: 100%;
-
+    width: 100%
 }
 .cover {
     position: relative;
@@ -117,11 +116,11 @@ h1 {
 .Movies {
     width: 100%;
 }
-.movie {
+/* .movie {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     margin-left: 2%;
-}
+} */
 .content {
     width: 100%;
 }
@@ -181,7 +180,7 @@ h1 {
 .logo img {
     height: 30px;
 }
-@media screen and (min-width: 1024px) and (max-width: 1281px) {
+/* @media screen and (min-width: 1024px) and (max-width: 1281px) {
     .movie {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -205,4 +204,10 @@ h1 {
         bottom: 6px;
         height: auto;
     }
+} */
+.movie{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+    minmax(300px, 1fr));
+    gap: 20px;
 }

@@ -35,7 +35,7 @@ function Header() {
              <a href="./favourites"> <h1 >Favorites</h1></a>
               <img src={fav} alt="" />
             </div>
-
+            
           </div> 
         </div>
       </nav>

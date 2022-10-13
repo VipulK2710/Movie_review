@@ -25,7 +25,7 @@ Check out [API LIVE DEMO](https://backend-sdp-m.herokuapp.com/1234567890
 1. Git Clone
 
 ```
-git clone git@github.com:Tech-i-s/techis-wd-forum-django-react.git
+git clone https://github.com/VipulK2710/Movie_review.git
 ```
 
 2. Backend setting
